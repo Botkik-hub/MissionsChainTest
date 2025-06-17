@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4966158ff96484781836705243c8967, type: 3}
+  m_Name: ChainA
+  m_EditorClassIdentifier: 
+  chainName: Collect Gems
+  missions:
+  - Mission: {fileID: 11400000, guid: 389380c46a3215d4382751b4c50cc152, type: 2}
+    delayTime: 0
+  - Mission: {fileID: 11400000, guid: e1db263ea04df56468d0a46bb0e1b9b5, type: 2}
+    delayTime: 3
+  - Mission: {fileID: 11400000, guid: ddce1c7e0ab757046833acc7eb9d3461, type: 2}
+    delayTime: 5

@@ -21,7 +21,6 @@ public class Timer
         }
     }
 
-
     public void Cancel()
     {
         _cts?.Cancel();
