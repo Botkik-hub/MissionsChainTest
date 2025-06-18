@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Missions;
+using Testing;
 using TMPro;
 using UnityEngine;
 
@@ -18,17 +19,31 @@ namespace DefaultNamespace
         [SerializeField] private TMP_Text missionName;
         [SerializeField] private TMP_Text missionText;
 
+        [SerializeField] private NotificationsQueue notificationsManager;
+        
         private List<MissionChainScriptable> _missionChains = new List<MissionChainScriptable>();
         
         public void AddMissionsChain(MissionChainScriptable chain)
         {
+            if (_missionChains.Contains(chain))
+            {
+                Debug.LogError("This mission chain is already started/completed");
+                return;
+            }
+            
             _missionChains.Add(chain);
             var startingMission  = chain.Missions[0];
-            AddMission(startingMission.Mission);
+            StartMission(startingMission.Mission);
         }
         
-        public void AddMission(IMission mission)
+        public void StartMission(IMission mission)
         {
+            if (_completedMissions.Contains(mission) || _currentMissions.Contains(mission))
+            {
+                Debug.LogError("This mission is already started/completed");
+                return;
+            }
+            Debug.Log($"Mission added: {mission.MissionName}");
             mission.OnFinished += MissionOnFinished;
             _currentMissions.Add(mission);
             mission.Start();
@@ -84,6 +99,7 @@ namespace DefaultNamespace
             foreach (var mission in _currentMissions)
             {
                 mission.OnFinished -= MissionOnFinished;
+                mission.Dispose();
             }
             // Possibly serialize progress of missions here, serialize completed missions
             _currentMissions.Clear();
@@ -112,6 +128,16 @@ namespace DefaultNamespace
             _currentMissions.Remove(mission);
             _completedMissions.Add(mission);
 
+            if (notificationsManager != null)
+            {
+                notificationsManager.AddNotification(mission);
+            }
+            
+            if (_trackedMission == mission)
+            {
+                RemoveTrackedMission();
+            }
+            
             if (mission.Chain != null)
             {
                 ContinueMissionChain(mission);
@@ -139,11 +165,11 @@ namespace DefaultNamespace
             if (nextMission.delayTime != 0)
             {
                 var timer = new Timer();
-                _ = timer.StartAsync((int)(nextMission.delayTime * 1000), ()=>AddMission(nextMission.Mission));
+                _ = timer.StartAsync((int)(nextMission.delayTime * 1000), ()=>StartMission(nextMission.Mission));
             }
             else
             {
-                AddMission(nextMission.Mission);
+                StartMission(nextMission.Mission);
             }
         }
     }

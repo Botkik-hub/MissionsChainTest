@@ -14,6 +14,7 @@ namespace Missions.MissionImplementations
         {
             isCompleted = false;
             _collectedItems = 0;
+            MissionProgress = $"Collected Items: {_collectedItems}/{itemAmount}";
             _player = FindFirstObjectByType<Player>();
             if (_player != null)
             {
@@ -26,7 +27,7 @@ namespace Missions.MissionImplementations
             InvokeStart();
         }
 
-        private void OnDestroy()
+        public override void Dispose()
         {
             UnsubscribePlayer();
         }

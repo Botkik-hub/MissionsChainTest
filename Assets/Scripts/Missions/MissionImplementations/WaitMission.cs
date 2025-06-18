@@ -14,6 +14,7 @@ namespace Missions.MissionImplementations
         {
             isCompleted = false;
             secondsLeft = timeInSeconds;
+            MissionProgress = $"Time remaining: {secondsLeft}";
             _timer = new Timer();
             // discard task, we dont want to exit start and treat this as event
             _ = _timer.StartAsync(1000, OnComplete);

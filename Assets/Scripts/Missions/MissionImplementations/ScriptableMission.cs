@@ -8,12 +8,14 @@ namespace Missions.MissionImplementations
     {
         protected bool isCompleted = false;
         [SerializeField] private string missionName;
+        
         public string MissionName => missionName;
         public bool IsCompleted => isCompleted;
         public string MissionProgress { get; protected set; }
         public event Action<IMission> OnStarted;
         public event Action<IMission> OnMissionPointReached;
         public event Action<IMission> OnFinished;
+        
         public abstract void Start();
         
         public MissionChainScriptable Chain { get; set; }
@@ -31,6 +33,11 @@ namespace Missions.MissionImplementations
         protected void InvokeFinish()
         {
             OnFinished?.Invoke(this);
+        }
+
+        public virtual void Dispose()
+        {
+            
         }
     }
 }

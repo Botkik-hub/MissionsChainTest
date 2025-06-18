@@ -26,7 +26,7 @@ namespace Missions
                     else if (missionInfo.Mission.Chain != this)
                     {
                         Debug.LogError("Mission is already assigned to the other chain", missionInfo.Mission.Chain);
-                    } 
+                    }
                 }
             }
         }
