@@ -4,9 +4,10 @@ using UnityEngine;
 namespace Missions
 {
     [Serializable]
-    public class MissionInfo 
+    public class MissionInfo
     {
-        [SerializeReference] public ScriptableMission Mission; 
+        public IMission Mission => mission;
+        [SerializeReference] private ScriptableMission mission; 
         [SerializeField] public float delayTime;
     }
 }

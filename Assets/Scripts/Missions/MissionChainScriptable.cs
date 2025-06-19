@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Missions
@@ -27,6 +28,20 @@ namespace Missions
                         Debug.LogError("Mission is already assigned to the other chain", missionInfo.Mission.Chain);
                     }
                 }
+            }
+        }
+
+        
+        /// <summary>
+        ///  This code is for editor only, it should not be called during runtime
+        /// </summary>
+        /// <param name="scriptableMission"></param>
+        public void RemoveMission(ScriptableMission scriptableMission)
+        {
+            var info = missions.FirstOrDefault(m => ReferenceEquals(m.Mission, scriptableMission));
+            if (info != null)
+            {
+                missions.Remove(info);
             }
         }
     }

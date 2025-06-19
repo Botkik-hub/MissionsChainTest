@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chainName: Collect coins
   missions:
-  - Mission: {fileID: 11400000, guid: b5461a1a518619241a940beaa814c584, type: 2}
+  - mission: {fileID: 11400000, guid: b5461a1a518619241a940beaa814c584, type: 2}
     delayTime: 0
-  - Mission: {fileID: 11400000, guid: acde8f31943ba5e42a35fdeb00206d61, type: 2}
+  - mission: {fileID: 11400000, guid: acde8f31943ba5e42a35fdeb00206d61, type: 2}
     delayTime: 3
-  - Mission: {fileID: 11400000, guid: 4a6874240bea09049bb8604937130589, type: 2}
+  - mission: {fileID: 11400000, guid: 4a6874240bea09049bb8604937130589, type: 2}
     delayTime: 5

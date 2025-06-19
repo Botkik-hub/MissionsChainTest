@@ -38,5 +38,12 @@ namespace Missions
         {
             
         }
+
+        [ContextMenu("Remove chain")]
+        private void RemoveChain()
+        {
+            Chain?.RemoveMission(this);
+            Chain = null;
+        }
     }
 }

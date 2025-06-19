@@ -16,6 +16,6 @@ namespace Missions
         event Action<IMission> OnMissionPointReached;
         event Action<IMission> OnFinished;
         void Start();
-        MissionChainScriptable Chain { get; }
+        MissionChainScriptable Chain { get; set; }
     }
 }
