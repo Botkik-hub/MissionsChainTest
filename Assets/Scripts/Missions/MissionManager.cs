@@ -34,8 +34,19 @@ namespace Missions
             var startingMission  = chain.Missions[0];
             StartMission(startingMission.Mission);
         }
+
+        public void AddMission(IMission mission)
+        {
+            if (mission.Chain != null)
+            {
+                Debug.LogError("This mission has chain and should be started from there!");
+                return;
+            }
+
+            StartMission(mission);
+        }
         
-        public void StartMission(IMission mission)
+        private void StartMission(IMission mission)
         {
             if (_completedMissions.Contains(mission) || _currentMissions.Contains(mission))
             {
