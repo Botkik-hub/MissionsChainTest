@@ -1,8 +1,7 @@
 ﻿using System;
-using Missions.MissionImplementations;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Missions
 {
     [Serializable]
     public class MissionInfo 

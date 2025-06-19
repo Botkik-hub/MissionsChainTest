@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using Missions;
 using Testing;
 using TMPro;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Missions
 {
     public class MissionManager : MonoBehaviour
     {

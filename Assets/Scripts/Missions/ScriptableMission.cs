@@ -1,8 +1,7 @@
 ﻿using System;
-using DefaultNamespace;
 using UnityEngine;
 
-namespace Missions.MissionImplementations
+namespace Missions
 {
     public abstract class ScriptableMission : ScriptableObject, IMission
     {

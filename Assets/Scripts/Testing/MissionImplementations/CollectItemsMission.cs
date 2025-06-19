@@ -1,7 +1,7 @@
-﻿using Testing;
+﻿using Missions;
 using UnityEngine;
 
-namespace Missions.MissionImplementations
+namespace Testing.MissionImplementations
 {
     [CreateAssetMenu(fileName = "New CollectItemsMission", menuName = "Missions/CollectItemsMission")]
     public class CollectItemsMission : ScriptableMission

@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Missions;
+using UnityEngine;
 
-namespace Missions.MissionImplementations
+namespace Testing.MissionImplementations
 {
     [CreateAssetMenu(fileName = "New WaitMission", menuName = "Missions/WaitMission")]
     public class WaitMission : ScriptableMission
