@@ -90,7 +90,10 @@ namespace Missions
             else
             {
                 missionId = _currentMissions.IndexOf(_trackedMission);
-                missionId = (missionId + 1) % _currentMissions.Count;
+                if (missionId != -1)
+                    missionId = (missionId + 1) % _currentMissions.Count;
+                else
+                    missionId = 0;
             }
             SetTrackedMission(_currentMissions[missionId]);
         }
@@ -146,6 +149,10 @@ namespace Missions
             if (_trackedMission == mission)
             {
                 RemoveTrackedMission();
+                if (_currentMissions.Count > 0)
+                {
+                    SetTrackedMission(_currentMissions[0]);
+                }
             }
             
             if (mission.Chain != null)
